@@ -20,7 +20,8 @@ from google.auth.transport import requests
 from google.cloud import datastore
 import google.oauth2.id_token
 import google.auth.credentials
-	
+
+#configuration file defined	
 firebase_request_adapter = requests.Request()
 app = Flask(__name__)
 app.config.from_pyfile(os.path.join(".", "app.conf"), silent=False)
@@ -35,6 +36,7 @@ def root():
 
 @app.route('/getCustomer', methods=['GET'])
 def get_customer():
+	#Returns customer details for valid customerID
 	# Fetch query parameter
 	customerId = request.args.get('customerId')
 	if customerId is None:
@@ -48,10 +50,11 @@ def get_customer():
 	
 @app.route('/addCustomer', methods=['POST'])
 def add_customer():
+	#Insert values of customer into Datastore
 	content = request.get_json()
 	name = content['name']
 	email = content['email']
-	phoneNumber = content['phone_number']
+	phoneNumber = content['phoneNumber']
 	customerid= content['customerid']
 	if name is None or email is None or customerid is None:
 		return "please provide customer name and email and ID"
@@ -60,7 +63,7 @@ def add_customer():
 	cust_table_name['customerId'] = customerid
 	cust_table_name['name'] = name
 	cust_table_name['email'] = email
-	cust_table_name['phone_number'] = phoneNumber
+	cust_table_name['phoneNumber'] = phoneNumber
 	client.put(cust_table_name);
 	#return "save data successfully";
 
@@ -68,6 +71,7 @@ def add_customer():
 
 @app.route('/getCustomers', methods=['GET'])
 def get_customers():
+	#Returns all the customer details
 	query = client.query(kind=table_name)
 	return jsonify(list(query.fetch()));
 
