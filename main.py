@@ -21,59 +21,63 @@ from google.cloud import datastore
 import google.oauth2.id_token
 import google.auth.credentials
 
-#configuration file defined	
-firebase_request_adapter = requests.Request()
+# Class variables
 app = Flask(__name__)
 app.config.from_pyfile(os.path.join(".", "app.conf"), silent=False)
-google_name = app.config.get("GOOGLE_ENDPOINT_NAME")	
-table_name = app.config.get("TABLE_NAME")
-client=datastore.Client(google_name)
-	
+googleName = app.config.get("GOOGLE_ENDPOINT_NAME")
+tableName = app.config.get("TABLE_NAME")
+client = datastore.Client(googleName)
+apiPort = app.config.get("PORT")
+
 @app.route('/')
 def root():
-    return "Hello world !!!!"
-	
-
-@app.route('/getCustomer', methods=['GET'])
-def get_customer():
-	#Returns customer details for valid customerID
-	# Fetch query parameter
-	customerId = request.args.get('customerId')
-	if customerId is None:
-		return "please provide customer id"
-	query = client.query(kind=table_name)
-	query.add_filter('customerId', '=', customerId)
-	result = list(query.fetch())
-	if len(result) == 0:	
-		return "No Customer found for customer id: "+customerId;
-	return jsonify(result[0]);
-	
-@app.route('/addCustomer', methods=['POST'])
-def add_customer():
-	#Insert values of customer into Datastore
-	content = request.get_json()
-	name = content['name']
-	email = content['email']
-	phoneNumber = content['phoneNumber']
-	customerid= content['customerid']
-	if name is None or email is None or customerid is None:
-		return "please provide customer name and email and ID"
-	customerKey = client.key(table_name,customerid)
-	cust_table_name = datastore.Entity(key=customerKey)
-	cust_table_name['customerId'] = customerid
-	cust_table_name['name'] = name
-	cust_table_name['email'] = email
-	cust_table_name['phoneNumber'] = phoneNumber
-	client.put(cust_table_name);
-	#return "save data successfully";
-
-	return jsonify(cust_table_name);	
+    return "Welcome to customer details Application !!!!"
 
 @app.route('/getCustomers', methods=['GET'])
-def get_customers():
-	#Returns all the customer details
-	query = client.query(kind=table_name)
-	return jsonify(list(query.fetch()));
+def getCustomers():
+	# Returns all the customer details
+    query = client.query(kind=tableName)
+    return jsonify(list(query.fetch()));
+
+@app.route('/getCustomer', methods=['GET'])
+def getCustomer():
+    # Returns customer details for valid customerId
+    # Fetch query parameter
+    customerId = request.args.get('customerId')
+
+    if customerId is None:
+        return "Please provide customer id"
+
+    query = client.query(kind=tableName)
+    query.add_filter('customerId', '=', customerId)
+    result = list(query.fetch())
+
+    if len(result) == 0:
+        return "No Customer found for customer id: " + customerId;
+    return jsonify(result[0]);
+
+@app.route('/addCustomer', methods=['POST'])
+def addCustomer():
+    # Add customer data into Datastore
+    content = request.get_json()
+    name = content['name']
+    email = content['email']
+    phoneNumber = content['phoneNumber']
+    customerId = content['customerId']
+
+    if name is None or email is None or customerId is None:
+        return "please provide customer name and email and ID"
+
+    customerKey = client.key(tableName, customerId)
+    custTableName = datastore.Entity(key=customerKey)
+    custTableName['customerId'] = customerId
+    custTableName['name'] = name
+    custTableName['email'] = email
+    custTableName['phoneNumber'] = phoneNumber
+    client.put(custTableName);
+
+    # return saved data;
+    return jsonify(custTableName);
 
 if __name__ == '__main__':
     # This is used when running locally only. When deploying to Google App
@@ -83,5 +87,5 @@ if __name__ == '__main__':
     # the "static" directory. See:
     # http://flask.pocoo.org/docs/1.0/quickstart/#static-files. Once deployed,
     # App Engine itself will serve those files as configured in app.yaml.
-    app.run(host='127.0.0.1', port=8080, debug=True)
+    app.run(host='127.0.0.1', port=apiPort, debug=True)
 # [START gae_python37_render_template]
