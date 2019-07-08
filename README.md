@@ -11,9 +11,8 @@ By using python and flask framework:
 
 /postCustomer - api to create new customer detail into datastore
 
-Local Usage: Prerequisite: Node modules should be installed on local machine
-
-GCloud SDK Usage: Initialized gcloud sdk before deploying application into app engine
+## GCloud SDK Usage: 
+Initialized gcloud sdk before deploying application into app engine
 
 $gcloud auth login
 
