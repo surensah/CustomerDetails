@@ -5,8 +5,11 @@ By using python and flask framework:
 *Created 3 apis:
 
 /getCustomers - api to fetch customers details from datastore
+
 /getCustomer?customerId=value - api to fetch specific customer detail from datastore
+
 /postCustomer - api to create new customer detail into datastore
+
 Local Usage: Prerequisite: Node modules should be installed on local machine
 
 GCloud SDK Usage: Initialized gcloud sdk before deploying application into app engine
