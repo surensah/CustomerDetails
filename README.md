@@ -9,7 +9,7 @@ By using python and flask framework:
 
 - /getCustomer?customerId=value - api to fetch specific customer detail from datastore
 
-/postCustomer - api to create new customer detail into datastore
+- /postCustomer - api to create new customer detail into datastore
 
 ### GCloud SDK Usage: 
 Initialized gcloud sdk before deploying application into app engine
