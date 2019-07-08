@@ -11,7 +11,7 @@ By using python and flask framework:
 
 /postCustomer - api to create new customer detail into datastore
 
-## GCloud SDK Usage: 
+### GCloud SDK Usage: 
 Initialized gcloud sdk before deploying application into app engine
 
 $gcloud auth login
