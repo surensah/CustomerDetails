@@ -52,4 +52,4 @@ Using Postman API to insert the values to Customer Kind:
 
 https://earnest-crow-243811.appspot.com/addCustomer
 
-sample input for post customer {"customerid":"104","name":"Surendra","email":"surendra@gmail.com","phoneNumber":"7680900689"}
+sample input for post customer {"customerId":"104","name":"Surendra","email":"surendra@gmail.com","phoneNumber":"7680900689"}
