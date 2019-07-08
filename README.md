@@ -31,11 +31,11 @@ API endpoints:
 
 getCustomer with id:https://earnest-crow-243811.appspot.com/getCustomer?customerId=100
 
--Result O/P-: {"customerId":"100","email":"sankar@gmail.com","name":"sankar","phoneNumber":"+50505050505"}
+Result O/P-: {"customerId":"100","email":"sankar@gmail.com","name":"sankar","phoneNumber":"+50505050505"}
 
 getCustomer with id:https://earnest-crow-243811.appspot.com/getCustomer?customerId=105  --For invalid customer id: 105
 
--Result O/P-  No Customer found for customer id: 105
+Result O/P-  No Customer found for customer id: 105
 
 /addCustomer endpoint: https://earnest-crow-243811.appspot.com/addCustomer
 
