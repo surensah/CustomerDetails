@@ -3,6 +3,7 @@ Created a datastore with (kind) "customer" with few attributes like customerId, 
 By using python and flask framework:
 
 Created 3 apis:
+
 /getCustomers - api to fetch customers details from datastore
 /getCustomer?customerId=value - api to fetch specific customer detail from datastore
 /postCustomer - api to create new customer detail into datastore
