@@ -28,15 +28,17 @@ Application "Welcome to customer details" Endpoint: https://earnest-crow-243811.
 
 #### API endpoints:
 
-/getCustomers endpoint: https://earnest-crow-243811.appspot.com/getCustomers
+/getCustomers endpoint: 
+https://earnest-crow-243811.appspot.com/getCustomers
 
 /getCustomer?customerId=value endpoint with sample customer id's:
 
-getCustomer with id:https://earnest-crow-243811.appspot.com/getCustomer?customerId=100
+getCustomer with id:
+https://earnest-crow-243811.appspot.com/getCustomer?customerId=100
 
 
-getCustomer with id:https://earnest-crow-243811.appspot.com/getCustomer?customerId=105  --For invalid customer id: 105
-
+getCustomer with id:
+https://earnest-crow-243811.appspot.com/getCustomer?customerId=105  --For invalid customer id: 105
 
 
 Using Postman API to insert the values to Customer Kind:
