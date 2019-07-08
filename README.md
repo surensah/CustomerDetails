@@ -47,7 +47,7 @@ https://earnest-crow-243811.appspot.com/getCustomer?customerId=105  --For invali
 Result:No Customer found for customer id: 105
 
 
-Using Postman API to insert the values to Customer Kind:
+Using Postman API to add the values to Customer Kind:
 
 - /addCustomer endpoint:
 
