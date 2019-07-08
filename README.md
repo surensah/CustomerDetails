@@ -1,4 +1,4 @@
-# CustomerDetails
+# customerDetails
 Initially created a datastore with (kind) "customer" with few attributes like customerId, email, name, phone_Number
 
 By using python and flask framework:
@@ -23,7 +23,7 @@ $gcloud app browse
 
 Application "Hello world" Endpoint: https://earnest-crow-243811.appspot.com/
 
-API endpoints:
+#API endpoints:
 
 /getCustomers endpoint: https://earnest-crow-243811.appspot.com/getCustomers
 
