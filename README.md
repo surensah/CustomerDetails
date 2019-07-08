@@ -5,9 +5,9 @@ By using python and flask framework:
 
 ## Created 3 API's:
 
-/getCustomers - api to fetch customers details from datastore
+- /getCustomers - api to fetch customers details from datastore
 
-/getCustomer?customerId=value - api to fetch specific customer detail from datastore
+- /getCustomer?customerId=value - api to fetch specific customer detail from datastore
 
 /postCustomer - api to create new customer detail into datastore
 
