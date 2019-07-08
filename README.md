@@ -21,7 +21,7 @@ $gcloud app deploy(google sdk)
 
 $gcloud app browse
 
-Application "Hello world" Endpoint: https://earnest-crow-243811.appspot.com/
+Application "Welcome to customer details" Endpoint: https://earnest-crow-243811.appspot.com/
 
 API endpoints:
 
