@@ -1,8 +1,9 @@
 # customerDetails
+
 Created a datastore with (kind) "customer" with few attributes like customerId, email, name, phone_Number
 By using python and flask framework:
 
-##Created 3 API's:
+# #Created 3 API's:
 
 /getCustomers - api to fetch customers details from datastore
 
