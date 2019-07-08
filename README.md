@@ -23,7 +23,7 @@ $gcloud app browse
 
 Application "Hello world" Endpoint: https://earnest-crow-243811.appspot.com/
 
-#API endpoints:
+API endpoints:
 
 /getCustomers endpoint: https://earnest-crow-243811.appspot.com/getCustomers
 
