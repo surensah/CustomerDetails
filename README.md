@@ -43,11 +43,13 @@ https://earnest-crow-243811.appspot.com/getCustomer?customerId=100
 
 https://earnest-crow-243811.appspot.com/getCustomer?customerId=105  --For invalid customer id: 105
 
--Result:No Customer found for customer id: 105
+Result:No Customer found for customer id: 105
 
 
 Using Postman API to insert the values to Customer Kind:
 
-/addCustomer endpoint: https://earnest-crow-243811.appspot.com/addCustomer
+- /addCustomer endpoint:
+
+https://earnest-crow-243811.appspot.com/addCustomer
 
 sample input for post customer {"customerid":"104","name":"Surendra","email":"surendra@gmail.com","phoneNumber":"7680900689"}
