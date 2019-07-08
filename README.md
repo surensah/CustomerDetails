@@ -2,7 +2,7 @@
 Created a datastore with (kind) "customer" with few attributes like customerId, email, name, phone_Number
 By using python and flask framework:
 
-Created 3 apis:
+*Created 3 apis:
 
 /getCustomers - api to fetch customers details from datastore
 /getCustomer?customerId=value - api to fetch specific customer detail from datastore
@@ -31,11 +31,10 @@ API endpoints:
 
 getCustomer with id:https://earnest-crow-243811.appspot.com/getCustomer?customerId=100
 
-Result O/P-: {"customerId":"100","email":"sankar@gmail.com","name":"sankar","phoneNumber":"+50505050505"}
 
 getCustomer with id:https://earnest-crow-243811.appspot.com/getCustomer?customerId=105  --For invalid customer id: 105
 
-Result O/P-  No Customer found for customer id: 105
+
 
 Using Postman API to insert the values to Customer Kind:
 
