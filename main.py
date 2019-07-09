@@ -24,7 +24,7 @@ import google.auth.credentials
 # Class variables
 app = Flask(__name__)
 app.config.from_pyfile(os.path.join(".", "app.conf"), silent=False)
-googleName = app.config.get("GOOGLE_ENDPOINT_NAME")
+googleName = app.config.get("PROJECT_NAME")
 tableName = app.config.get("TABLE_NAME")
 client = datastore.Client(googleName)
 apiPort = app.config.get("PORT")
@@ -60,24 +60,20 @@ def getCustomer():
 def addCustomer():
     # Add customer data into Datastore
     content = request.get_json()
-    name = content['name']
-    email = content['email']
-    phoneNumber = content['phoneNumber']
-    customerId = content['customerId']
+   
+    if content['customerId'] is None or content['name'] is None or content['email'] is None:
+        return "Please provide customerId, name and email"
 
-    if name is None or email is None or customerId is None:
-        return "please provide customer name and email and ID"
-
-    customerKey = client.key(tableName, customerId)
-    custTableName = datastore.Entity(key=customerKey)
-    custTableName['customerId'] = customerId
-    custTableName['name'] = name
-    custTableName['email'] = email
-    custTableName['phoneNumber'] = phoneNumber
-    client.put(custTableName);
+    customerKey = client.key(tableName, content['customerId'])
+    custTable = datastore.Entity(key=customerKey)
+    custTable['customerId'] = content['customerId'] 
+    custTable['name'] = content['name']
+    custTable['email'] = content['email']
+    custTable['phoneNumber'] = content['phoneNumber']
+    client.put(custTable);
 
     # return saved data;
-    return jsonify(custTableName);
+    return jsonify(custTable);
 
 if __name__ == '__main__':
     # This is used when running locally only. When deploying to Google App
