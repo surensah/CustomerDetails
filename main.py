@@ -59,21 +59,13 @@ def getCustomer():
 @app.route('/addCustomer', methods=['POST'])
 def addCustomer():
     # Add customer data into Datastore
-    content = request.get_json()
-   
-    if content['customerId'] is None or content['name'] is None or content['email'] is None:
-        return "Please provide customerId, name and email"
-
-    customerKey = client.key(tableName, content['customerId'])
+    customerKey = client.key(tableName)
     custTable = datastore.Entity(key=customerKey)
-    custTable['customerId'] = content['customerId'] 
-    custTable['name'] = content['name']
-    custTable['email'] = content['email']
-    custTable['phoneNumber'] = content['phoneNumber']
-    client.put(custTable);
-
-    # return saved data;
-    return jsonify(custTable);
+    custTable.update(request.get_json())
+    client.put(custTable)
+    res = {'message' : 'Customer added successfully', 'data' : custTable}
+    return jsonify(res);
+	
 
 if __name__ == '__main__':
     # This is used when running locally only. When deploying to Google App
