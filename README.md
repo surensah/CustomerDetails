@@ -1,6 +1,6 @@
 # customerDetails
 
-Created a datastore with (kind) "customer" with few attributes like customerId, email, name, phone_Number
+Created a datastore with (kind) "customer" with few attributes like customerId, email, name, phoneNumber
 By using python and flask framework:
 
 ## Created 3 API's:
