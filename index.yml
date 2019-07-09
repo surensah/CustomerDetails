@@ -7,5 +7,5 @@ indexes:
     direction: desc
   - name: email
     direction: desc
-  - name: phone_number
+  - name: phoneNumber
     direction: desc
