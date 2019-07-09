@@ -24,9 +24,9 @@ import google.auth.credentials
 # Class variables
 app = Flask(__name__)
 app.config.from_pyfile(os.path.join(".", "app.conf"), silent=False)
-ProjectName = app.config.get("PROJECT_NAME")
+projectName = app.config.get("PROJECT_NAME")
 tableName = app.config.get("TABLE_NAME")
-client = datastore.Client(ProjectName)
+client = datastore.Client(projectName)
 apiPort = app.config.get("PORT")
 
 @app.route('/')
